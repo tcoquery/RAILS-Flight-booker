@@ -1,17 +1,12 @@
-<%= form_with(model: booking) do |form| %>
-  <% if booking.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+  <%= form_with model: @booking do |f| %>
+      <%= f.fields_for :passengers do |sub_form| %>
+        <%= sub_form.text_field :name %>
+        <%= sub_form.label(:name, "Name") %>
+        <%= sub_form.email_field :email %>
+        <%= sub_form.label(:email, "Email") %>
+        <br>
+      <% end %>
+        <%= f.hidden_field :flight_id, value: params[:flight_id] %>
+        <%= f.submit %>
+    <% end %>
 
-      <ul>
-        <% booking.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

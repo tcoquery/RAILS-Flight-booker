@@ -8,11 +8,18 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1 or /bookings/1.json
   def show
+    @booking = Booking.find(params[:id])
+
+    respond_to do |format|
+      format.html #show.html.erb
+      format.json { render json: @booking }
+    end
   end
 
   # GET /bookings/new
   def new
     @booking = Booking.new
+    params[:passengers].to_i.times { @booking.passengers.build}
   end
 
   # GET /bookings/1/edit
@@ -65,6 +72,6 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.fetch(:booking, {})
+      params.require(:booking).permit(:flight_id, :number_of_passengers, passengers_attributes: [:name, :email])
     end
 end

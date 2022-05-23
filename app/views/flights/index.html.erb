@@ -15,15 +15,16 @@
   <% end %>
 
 Search results :
-  <%= form_with(method: "get") do |form| %>
+  <%= form_with url: new_booking_path, method: "get" do |form| %>
     <br>
     <% if @search_results != nil%>
     <% @search_results.each do |result| %>
-    <%= form.radio_button :booking, result.id%>
+    <%= form.radio_button :flight_id, result.id%>
     <%= result.takeoff %>
     <%= result.duration %>
     <br>
     <% end %>
   <% end %>
+  <%= form.hidden_field :passengers, value: params[:passengers] %>
   <%= form.submit "select" %>
 <% end %>
