@@ -15,13 +15,15 @@
   <% end %>
 
 Search results :
-
+  <%= form_with(method: "get") do |form| %>
     <br>
     <% if @search_results != nil%>
     <% @search_results.each do |result| %>
+    <%= form.radio_button :booking, result.id%>
     <%= result.takeoff %>
     <%= result.duration %>
     <br>
     <% end %>
   <% end %>
-
+  <%= form.submit "select" %>
+<% end %>
