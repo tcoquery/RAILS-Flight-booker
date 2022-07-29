@@ -5,12 +5,11 @@
     <%= form.select(:arrival_airport, options_for_select(@arriving_flights)) %>
     <%= form.label(:passengers, "Number of passengers") %>
     <%= form.select(:passengers, [1, 2, 3, 4]) %>
-    <%= form.label(:year, "Year") %>
-    <%= form.select(:year, options_for_select(@year_options)) %>
-    <%= form.label(:month, "Month") %>
-    <%= form.select(:month, options_for_select(@month_options)) %>
-    <%= form.label(:day, "Day") %>
-    <%= form.select(:day, options_for_select(@day_options)) %>
+    <%= form.label(:date, "Date") %>
+    <%= form.select(:date, options_for_select(@date_options)) %>
+    <%= form.label(:time, "Time") %>
+    <%= form.select(:time, options_for_select(@time_options)) %>
+
     <%= form.submit "Search" %>
   <% end %>
 
@@ -20,7 +19,8 @@ Search results :
     <% if @search_results != nil%>
     <% @search_results.each do |result| %>
     <%= form.radio_button :flight_id, result.id%>
-    <%= result.takeoff %>
+    <%= result.takeoff_date %>
+    <%= result.takeoff_time %>
     <%= result.duration %>
     <br>
     <% end %>

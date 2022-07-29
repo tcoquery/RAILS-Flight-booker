@@ -11,23 +11,23 @@ cities.each do |city|
 	Airport.create(airport_code: city)
 end
 
-flights = Flight.create([
-	{departure_airport_id: 1, arrival_airport_id: 2, takeoff: "2022-12-25 07:00:00", duration: 120},
-	{departure_airport_id: 1, arrival_airport_id: 2, takeoff: "2022-12-25 10:00:00", duration: 120},
-	{departure_airport_id: 1, arrival_airport_id: 2, takeoff: "2022-12-25 13:00:00", duration: 120},
-	{departure_airport_id: 2, arrival_airport_id: 1, takeoff: "2022-12-25 09:30:00", duration: 120},
-	{departure_airport_id: 2, arrival_airport_id: 1, takeoff: "2022-12-25 12:30:00", duration: 120},
-	{departure_airport_id: 2, arrival_airport_id: 1, takeoff: "2022-12-25 15:30:00", duration: 120},
-	{departure_airport_id: 3, arrival_airport_id: 4, takeoff: "2022-12-25 07:00:00", duration: 120},
-	{departure_airport_id: 3, arrival_airport_id: 4, takeoff: "2022-12-25 10:00:00", duration: 120},
-	{departure_airport_id: 3, arrival_airport_id: 4, takeoff: "2022-12-25 13:00:00", duration: 120},
-	{departure_airport_id: 4, arrival_airport_id: 3, takeoff: "2022-12-25 09:30:00", duration: 120},
-	{departure_airport_id: 4, arrival_airport_id: 3, takeoff: "2022-12-25 12:30:00", duration: 120},
-	{departure_airport_id: 4, arrival_airport_id: 3, takeoff: "2022-12-25 15:30:00", duration: 120},
-	{departure_airport_id: 5, arrival_airport_id: 1, takeoff: "2022-09-23 07:00:00", duration: 90},
-	{departure_airport_id: 5, arrival_airport_id: 1, takeoff: "2022-09-23 10:00:00", duration: 90},
-	{departure_airport_id: 5, arrival_airport_id: 1, takeoff: "2022-09-23 13:00:00", duration: 90},
-	{departure_airport_id: 1, arrival_airport_id: 5, takeoff: "2022-09-23 09:30:00", duration: 90},
-	{departure_airport_id: 1, arrival_airport_id: 5, takeoff: "2022-09-23 12:30:00", duration: 90},
-	{departure_airport_id: 1, arrival_airport_id: 5, takeoff: "2022-09-23 15:30:00", duration: 90}
+tests = Flight.create([
+	{departure_airport_id: 1, arrival_airport_id: 2, takeoff_date: "2022-12-25", takeoff_time: "07:00", duration: 120},
+	{departure_airport_id: 1, arrival_airport_id: 2, takeoff_date: "2022-12-25", takeoff_time: "10:00", duration: 120},
+	{departure_airport_id: 1, arrival_airport_id: 2, takeoff_date: "2022-12-25", takeoff_time: "13:00", duration: 120},
+	{departure_airport_id: 2, arrival_airport_id: 1, takeoff_date: "2022-12-25", takeoff_time: "09:30", duration: 120},
+	{departure_airport_id: 2, arrival_airport_id: 1, takeoff_date: "2022-12-25", takeoff_time: "12:30", duration: 120},
+	{departure_airport_id: 2, arrival_airport_id: 1, takeoff_date: "2022-12-25", takeoff_time: "15:30", duration: 120},
+	{departure_airport_id: 3, arrival_airport_id: 4, takeoff_date: "2022-12-25", takeoff_time: "07:00", duration: 120},
+	{departure_airport_id: 3, arrival_airport_id: 4, takeoff_date: "2022-12-25", takeoff_time: "10:00", duration: 120},
+	{departure_airport_id: 3, arrival_airport_id: 4, takeoff_date: "2022-12-25", takeoff_time: "13:00", duration: 120},
+	{departure_airport_id: 4, arrival_airport_id: 3, takeoff_date: "2022-12-25", takeoff_time: "09:30", duration: 120},
+	{departure_airport_id: 4, arrival_airport_id: 3, takeoff_date: "2022-12-25", takeoff_time: "12:30", duration: 120},
+	{departure_airport_id: 4, arrival_airport_id: 3, takeoff_date: "2022-12-25", takeoff_time: "15:30", duration: 120},
+	{departure_airport_id: 5, arrival_airport_id: 1, takeoff_date: "2022-09-23", takeoff_time: "07:00", duration: 90},
+	{departure_airport_id: 5, arrival_airport_id: 1, takeoff_date: "2022-09-23", takeoff_time: "10:00", duration: 90},
+	{departure_airport_id: 5, arrival_airport_id: 1, takeoff_date: "2022-09-23", takeoff_time: "13:00", duration: 90},
+	{departure_airport_id: 1, arrival_airport_id: 5, takeoff_date: "2022-09-23", takeoff_time: "09:30", duration: 90},
+	{departure_airport_id: 1, arrival_airport_id: 5, takeoff_date: "2022-09-23", takeoff_time: "12:30", duration: 90},
+	{departure_airport_id: 1, arrival_airport_id: 5, takeoff_date: "2022-09-23", takeoff_time: "15:30", duration: 90}
 ])
