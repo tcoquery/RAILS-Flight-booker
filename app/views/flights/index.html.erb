@@ -1,37 +1,66 @@
-  <body class="h-14 bg-gradient-to-r from-cyan-500 to-blue-500">
+<body class="h-14 bg-gradient-to-r from-cyan-400 to-blue-500">
+  
   <%= form_with(method: "get") do |form| %>
-    <div>
-      <i class="fa-solid fa-plane-departure"></i>
-      <%= form.label(:departure_airport, "From") %><br>
-      <%= form.select(:departure_airport, options_for_select(@departing_flights)) %>
+  <div class="flex-col space-y-4 ">
+    <h1 class="font-mono text-7xl mb-28"> 
+      FLIGHT 
+      <div class="text-yellow-400">CLUB</div>
+    </h1>
+    <div class="flex space-x-4">
+      <div class="flex items-center"> 
+        <div>
+          <i class="fa-solid fa-plane-departure"></i> 
+          <%= form.label :departure_airport, "From", class: "font-bold font-mono"%><br>
+          <%= form.select(:departure_airport, options_for_select(@departing_flights), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div>
+          <i class="fa-solid fa-plane-arrival"></i> 
+          <%= form.label :arrival_airport, "To", class: "font-bold font-mono" %><br>
+          <%= form.select(:arrival_airport, options_for_select(@arriving_flights), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+        </div>
+      </div>
+      <div class="flex items-center ">
+        <div>
+          <div class="flex items-center">
+            <i class="fa-solid fa-user-group"></i>
+            <%= form.label :passengers, "Passengers", class: "font-mono font-bold ml-1" %>
+          </div>
+          <%= form.select(:passengers, [1, 2, 3, 4], {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div>
+          <i class="fa-solid fa-calendar"></i> 
+          <%= form.label :date, "Date", class: "font-bold font-mono" %><br>
+          <%= form.select(:date, options_for_select(@date_options), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <div>
+          <i class="fa-solid fa-clock"></i>
+          <%= form.label :time, "Time", class: "font-bold font-mono" %><br>
+          <%= form.select(:time, options_for_select(@time_options), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"})%>
+        </div>
+      </div>
     </div>
-    <div>
-      <i class="fa-solid fa-plane-arrival"></i>
-      <%= form.label(:arrival_airport, "To") %>
-      <%= form.select(:arrival_airport, options_for_select(@arriving_flights)) %>
-    </div>
-    <%= form.label(:passengers, "Passengers") %>
-    <%= form.select(:passengers, [1, 2, 3, 4]) %>
-    <%= form.label(:date, "Date") %>
-    <%= form.select(:date, options_for_select(@date_options)) %>
-    <%= form.label(:time, "Time") %>
-    <%= form.select(:time, options_for_select(@time_options)) %>
-    <%= form.submit "Search"%>
-  <% end %>
-
-Search results :
-  <%= form_with url: new_booking_path, method: "get" do |form| %>
-    <br>
-    <% if @search_results != nil%>
-    <% @search_results.each do |result| %>
-    <%= form.radio_button :flight_id, result.id%>
-    <%= result.takeoff_date %>
-    <%= result.takeoff_time %>
-    <%= result.duration %>
-    <br>
+    <%= form.submit "Search", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 font-mono"%>
     <% end %>
-  <% end %>
-  <%= form.hidden_field :passengers, value: params[:passengers] %>
-  <%= form.submit "select" %>
-<% end %>
+  </div>
+
+  <div>
+    <%= form_with url: new_booking_path, method: "get" do |form| %>
+      <% if @search_results != nil%>
+        <% @search_results.each do |result| %>
+          <%= form.radio_button :flight_id, result.id%>
+          <%= result.takeoff_date %>
+          <%= result.takeoff_time %>
+          <%= result.duration %>
+        <% end %>
+        <%= form.hidden_field :passengers, value: params[:passengers] %>
+        <%= form.submit "Select" %>
+      <% end %>
+    <% end %>
+  </div>
 </body>
