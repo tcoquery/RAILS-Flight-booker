@@ -1,16 +1,22 @@
+  <body class="h-14 bg-gradient-to-r from-cyan-500 to-blue-500">
   <%= form_with(method: "get") do |form| %>
-    <%= form.label(:departure_airport, "Departure Airport") %>
-    <%= form.select(:departure_airport, options_for_select(@departing_flights)) %>
-    <%= form.label(:arrival_airport, "Arrival Airport") %>
-    <%= form.select(:arrival_airport, options_for_select(@arriving_flights)) %>
-    <%= form.label(:passengers, "Number of passengers") %>
+    <div>
+      <i class="fa-solid fa-plane-departure"></i>
+      <%= form.label(:departure_airport, "From") %><br>
+      <%= form.select(:departure_airport, options_for_select(@departing_flights)) %>
+    </div>
+    <div>
+      <i class="fa-solid fa-plane-arrival"></i>
+      <%= form.label(:arrival_airport, "To") %>
+      <%= form.select(:arrival_airport, options_for_select(@arriving_flights)) %>
+    </div>
+    <%= form.label(:passengers, "Passengers") %>
     <%= form.select(:passengers, [1, 2, 3, 4]) %>
     <%= form.label(:date, "Date") %>
     <%= form.select(:date, options_for_select(@date_options)) %>
     <%= form.label(:time, "Time") %>
     <%= form.select(:time, options_for_select(@time_options)) %>
-
-    <%= form.submit "Search" %>
+    <%= form.submit "Search"%>
   <% end %>
 
 Search results :
@@ -28,3 +34,4 @@ Search results :
   <%= form.hidden_field :passengers, value: params[:passengers] %>
   <%= form.submit "select" %>
 <% end %>
+</body>
