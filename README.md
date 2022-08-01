@@ -1,24 +1,17 @@
-# README
+# Flight Booker 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project's main goal was to implement nested forms. It also makes heavy use of Active Record Associations.
 
-Things you may want to cover:
+The second goal of the project was to implement confirmation emails which is done locally for the moment.
 
-* Ruby version
+Styling was done with Tailwind.
 
-* System dependencies
+![Main page](https://i.imgur.com/4kJaEDG.png)
 
-* Configuration
+![Main page with search results](https://i.imgur.com/IwVhBuI.png)
 
-* Database creation
+![Booking page](https://i.imgur.com/nk0YJ9u.png)
 
-* Database initialization
+![Booking information page](https://i.imgur.com/OLCIyKa.png)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Email confirmation](https://i.imgur.com/P0mQKC0.png)
