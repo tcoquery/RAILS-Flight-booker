@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :bookings
+  resources :bookings, except: :edit
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :airport
-  resources :flight
+  resources :flight, only: :index
   resources :passenger
   # Defines the root path route ("/")
   root "flights#index"

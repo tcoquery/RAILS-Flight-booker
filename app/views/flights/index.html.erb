@@ -41,53 +41,53 @@
     <%= form.submit "Search", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 font-mono"%>
     <% end %>
   </div>
-
-
     <%= form_with url: new_booking_path, method: "get", class:"flex-col justify-content-between" do |form| %>
-    <% unless @search_results.empty? %>
-        <% @search_results.each do |result| %>
+      <% if @search_results.empty? %>
+          <p class="font-mono">So sorry, we couldn't find any available flight matching your criteria.</p>
+      <%else%>
+          <% @search_results.each do |result| %>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                      <tr>
-                          <th scope="col" class="p-4">
-                          </th>
-                          <th scope="col" class="py-3 px-6">
-                              Departure Date
-                          </th>
-                          <th scope="col" class="py-3 px-6">
-                              Departure Time
-                          </th>
-                          <th scope="col" class="py-3 px-6">
-                              Duration
-                          </th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                          <td class="p-4 w-4">
-                              <div class="flex items-center">
-                                <%= form.radio_button :flight_id, result.id%>
-                              </div>
-                          </td>
-                          <td scope="row" class="py-4 px-6 text-gray-600 whitespace-nowrap">
-                            <%= result.takeoff_date%>
-                          </td>
-                          <td class="py-4 px-6 text-gray-600 whitespace-nowrap">
-                            <%= result.takeoff_time %>
-                          </td>
-                          <td class="py-4 px-6 text-gray-600 whitespace-nowrap">
-                            <%= result.duration %> min
-                          </td>
-                      </tr>
-                  </tbody>
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th scope="col" class="p-4">
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                       Departure Date
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                      Departure Time
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                      Duration
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td class="p-4 w-4">
+                      <div class="flex items-center">
+                        <%= form.radio_button :flight_id, result.id%>
+                      </div>
+                      </td>
+                      <td scope="row" class="py-4 px-6 text-gray-600 whitespace-nowrap">
+                        <%= result.takeoff_date%>
+                      </td>
+                      <td class="py-4 px-6 text-gray-600 whitespace-nowrap">
+                        <%= result.takeoff_time %>
+                      </td>
+                      <td class="py-4 px-6 text-gray-600 whitespace-nowrap">
+                        <%= result.duration %> min
+                      </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
-        <% end %> 
-        <div>
-          <%= form.hidden_field :passengers, value: params[:passengers] %>
-          <%= form.submit "Choose this flight", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4 dark:focus:ring-yellow-900 font-mono" %>
-        </div>
+          <% end %> 
+          <div>
+            <%= form.hidden_field :passengers, value: params[:passengers] %>
+            <%= form.submit "Choose this flight", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4 dark:focus:ring-yellow-900 font-mono" %>
+          </div>
       <% end %>
     <% end %>
 </div>
