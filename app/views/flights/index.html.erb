@@ -41,6 +41,7 @@
     <%= form.submit "Search", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 font-mono"%>
     <% end %>
   </div>
+  <% unless @search_results == nil %>
     <%= form_with url: new_booking_path, method: "get", class:"flex-col justify-content-between" do |form| %>
       <% if @search_results.empty? %>
           <p class="font-mono">So sorry, we couldn't find any available flight matching your criteria.</p>
@@ -90,5 +91,6 @@
           </div>
       <% end %>
     <% end %>
+  <%end%>
 </div>
 </body>
