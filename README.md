@@ -6,7 +6,7 @@ The second goal of the project was to implement confirmation emails which is don
 
 Styling was done with Tailwind.
 
-Available here: https://cryptic-garden-51336.herokuapp.com/
+Available here: https://pure-meadow-40783.herokuapp.com/
 
 ![Main page](https://i.imgur.com/4kJaEDG.png)
 
