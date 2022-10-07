@@ -9,14 +9,8 @@ gem "font-awesome-sass", "~> 6.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
-group :development, :test do
- gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
-end
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

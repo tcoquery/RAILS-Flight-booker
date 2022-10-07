@@ -1,8 +1,8 @@
 <body class="h-14 bg-gradient-to-r from-cyan-400 to-blue-500">
-<div class="container mx-auto px-5 flex justify-between">
+<div class="container mx-auto px-5 mt-48 flex justify-between">
   <%= form_with(method: "get") do |form| %>
   <div class="flex-col space-y-4 ">
-    <h1 class="font-mono text-7xl mb-28"> 
+    <h1 class="font-mono text-8xl mb-28"> 
       FLIGHT 
       <div class="text-yellow-400">CLUB</div>
     </h1>
@@ -10,35 +10,35 @@
       <div class="flex items-center"> 
         <div>
           <i class="fa-solid fa-plane-departure"></i> 
-          <%= form.label :departure_airport, "From", class: "font-bold font-mono"%><br>
-          <%= form.select(:departure_airport, options_for_select(@departing_flights), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+          <%= form.label :departure_airport, "From", class: "font-bold font-mono text-xl"%><br>
+          <%= form.select(:departure_airport, options_for_select(@departing_flights), {}, {class: "text-xl w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
         </div>
       </div>
       <div class="flex items-center">
         <div>
           <i class="fa-solid fa-plane-arrival"></i> 
-          <%= form.label :arrival_airport, "To", class: "font-bold font-mono" %><br>
-          <%= form.select(:arrival_airport, options_for_select(@arriving_flights), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+          <%= form.label :arrival_airport, "To", class: "font-bold font-mono text-xl" %><br>
+          <%= form.select(:arrival_airport, options_for_select(@arriving_flights), {}, {class: "text-xl w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
         </div>
       </div>
       <div class="flex items-center ">
         <div>
           <div class="flex items-center">
             <i class="fa-solid fa-user-group"></i>
-            <%= form.label :passengers, "Passengers", class: "font-mono font-bold ml-1" %>
+            <%= form.label :passengers, "Passengers", class: "font-mono font-bold ml-1 text-xl" %>
           </div>
-          <%= form.select(:passengers, [1, 2, 3, 4], {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+          <%= form.select(:passengers, [1, 2, 3, 4], {}, {class: "text-xl w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
         </div>
       </div>
       <div class="flex items-center">
         <div>
           <i class="fa-solid fa-calendar"></i> 
-          <%= form.label :date, "Date", class: "font-bold font-mono" %><br>
-          <%= form.select(:date, options_for_select(@date_options), {}, {class: "w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
+          <%= form.label :date, "Date", class: "font-bold font-mono text-xl" %><br>
+          <%= form.select(:date, options_for_select(@date_options), {}, {class: "text-xl w-full pl-0 bg-transparent border-0 border-b-2 border-black focus:outline-none focus:ring-0 focus:border-black font-mono"}) %>
         </div>
       </div>
     </div>
-    <%= form.submit "Search", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 font-mono"%>
+    <%= form.submit "Search", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 font-mono"%>
     <% end %>
   </div>
   <% unless @search_results == nil %>
@@ -48,18 +48,18 @@
       <%else%>
           <% @search_results.each do |result| %>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
-              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <table class="w-full text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" class="p-4">
                     </th>
-                    <th scope="col" class="py-3 px-6">
+                    <th scope="col" class="py-3 px-6 ">
                        Departure Date
                     </th>
-                    <th scope="col" class="py-3 px-6">
+                    <th scope="col" class="py-3 px-6 ">
                       Departure Time
                     </th>
-                    <th scope="col" class="py-3 px-6">
+                    <th scope="col" class="py-3 px-6 ">
                       Duration
                     </th>
                   </tr>
@@ -87,7 +87,7 @@
           <% end %> 
           <div>
             <%= form.hidden_field :passengers, value: params[:passengers] %>
-            <%= form.submit "Choose this flight", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-4 dark:focus:ring-yellow-900 font-mono" %>
+            <%= form.submit "Choose this flight", class:"focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-2 focus:ring-yellow-300 font-medium rounded-lg  px-5 py-2.5 mt-4 dark:focus:ring-yellow-900 font-mono" %>
           </div>
       <% end %>
     <% end %>
